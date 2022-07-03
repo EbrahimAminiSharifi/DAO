@@ -1,22 +1,32 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.nhl.DAO;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class CRUD {
+/**
+ *
+ * @author moghaleb
+ */
+public interface CRUD {
 
-    public Connection connect() {
-        return null;
-    }
+    Connection connect(String serverIP, String user, String password) throws ClassNotFoundException, SQLException;
 
-    public ResultSet select(String query) {
-        return null;
-    }
+    int delete(String query) throws SQLException;
 
-    public Boolean insert(String query) {
-        return false;
-    }
+    Boolean insert(String query) throws SQLException;
 
-    public int update(String query) {
-        return 0;
-    }
+    ResultSet select(String query) throws SQLException;
+
+    void setAutoCommit(Boolean status) throws SQLException;
+
+    void setFetchSize(int fetchSize);
+
+    int update(String query) throws SQLException;
+    
 }
